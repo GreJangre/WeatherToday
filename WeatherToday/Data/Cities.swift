@@ -16,11 +16,19 @@ import Foundation
  }
 */
 
-struct It: Codable {
+struct Cities: Codable {
     let cityName: String
     let state: Int
     let celsius: Float
     let rainfallProbability: Int
+    
+    var celsiusToString: String {
+        return "섭씨 \(self.celsius)도 / 화씨 \((((self.celsius * 9/5) * 10).rounded() / 10) + 32)도"
+    }
+    
+    var rainfallProbabilityToString: String {
+        return "강수확률 \(self.rainfallProbability)%"
+    }
     
     enum CodingKeys: String, CodingKey {
         case state, celsius

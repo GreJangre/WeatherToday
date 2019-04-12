@@ -12,6 +12,8 @@ class CountryTableViewCell: UITableViewCell {
     
     @IBOutlet weak var countryImageView: UIImageView!
     @IBOutlet weak var countryLabel: UILabel!
+    
+    var assetName: String?
 
     override func awakeFromNib() {
         super.awakeFromNib()

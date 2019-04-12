@@ -83,7 +83,7 @@
             </objects>
             <point key="canvasLocation" x="932" y="782.51231527093603"/>
         </scene>
-        <!--City View Controller-->
+        <!--국가-->
         <scene sceneID="4z3-Rc-WgJ">
             <objects>
                 <viewController id="YJa-2Q-i8s" customClass="CityViewController" customModule="WeatherToday" customModuleProvider="target" sceneMemberID="viewController">
@@ -164,8 +164,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fiZ-xd-Czd"/>
                     </view>
+                    <navigationItem key="navigationItem" title="국가" id="fzG-xA-aJS"/>
                     <connections>
-                        <outlet property="cityTableView" destination="pd0-hj-nd7" id="ZTS-tk-nDE"/>
+                        <outlet property="cityTableView" destination="pd0-hj-nd7" id="aNl-Pl-BQC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="azu-3A-HfP" userLabel="First Responder" sceneMemberID="firstResponder"/>

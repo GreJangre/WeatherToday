@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var countryTableView: UITableView!
     
@@ -25,8 +25,8 @@ class ViewController: UIViewController, UITableViewDataSource {
         let country: Countries = self.countries[indexPath.row]
         
         cell.countryLabel?.text = country.koreanName
-
         cell.countryImageView?.image = UIImage(named: "flag_" + country.assetName)
+        cell.assetName = country.assetName
         
         return cell
     }
@@ -45,6 +45,23 @@ class ViewController: UIViewController, UITableViewDataSource {
             print("error: ", error.localizedDescription)
         }
         self.countryTableView.reloadData()
+    }
+    
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+        guard let nextViewController: CityViewController = segue.destination as? CityViewController else {
+            return
+        }
+        guard let cell: CountryTableViewCell = sender as? CountryTableViewCell else {
+            return
+        }
+        
+        nextViewController.countryName = cell.countryLabel.text ?? "국가"
+        nextViewController.assetName = cell.assetName
     }
 }
 
