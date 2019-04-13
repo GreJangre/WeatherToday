@@ -22,6 +22,36 @@ struct Cities: Codable {
     let celsius: Float
     let rainfallProbability: Int
     
+    var stateToEnglish: String {
+        switch self.state {
+        case 10:
+            return "sunny"
+        case 11:
+            return "cloudy"
+        case 12:
+            return "rainy"
+        case 13:
+            return "snowy"
+        default:
+            return ""
+        }
+    }
+    
+    var stateToKorean: String {
+        switch self.state {
+        case 10:
+            return "맑음"
+        case 11:
+            return "흐림"
+        case 12:
+            return "비"
+        case 13:
+            return "눈"
+        default:
+            return ""
+        }
+    }
+    
     var celsiusToString: String {
         return "섭씨 \(self.celsius)도 / 화씨 \((((self.celsius * 9/5) * 10).rounded() / 10) + 32)도"
     }

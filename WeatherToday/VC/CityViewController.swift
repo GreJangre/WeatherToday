@@ -25,17 +25,12 @@ class CityViewController: UIViewController, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: CityTableViewCell = tableView.dequeueReusableCell(withIdentifier: cityIdentifier, for: indexPath) as! CityTableViewCell
         let city: Cities = self.cities[indexPath.row]
-        let state: Dictionary = [
-            10 : "sunny",
-            11 : "cloudy",
-            12 : "rainy",
-            13 : "snowy"
-        ]
         
         cell.cityLabel.text = city.cityName
         cell.tempLabel.text = city.celsiusToString
         cell.rainLabel.text = city.rainfallProbabilityToString
-        cell.weatherImageView.image = UIImage(named: String(state[city.state] ?? ""))
+        cell.weatherImageView.image = UIImage(named: String(city.stateToEnglish))
+        cell.weatherToSet = city.stateToKorean
         
         return cell
     }
@@ -72,5 +67,15 @@ class CityViewController: UIViewController, UITableViewDataSource {
         guard let nextViewController: DetailViewController = segue.destination as? DetailViewController else {
             return
         }
+        
+        guard let cell: CityTableViewCell = sender as? CityTableViewCell else {
+            return
+        }
+        
+        nextViewController.titleToSet = cell.cityLabel.text
+        nextViewController.weatherImage = cell.weatherImageView
+        nextViewController.weatherToSet = cell.weatherToSet
+        nextViewController.rainToSet = cell.rainLabel.text
+        nextViewController.tempToSet = cell.tempLabel.text
     }
 }

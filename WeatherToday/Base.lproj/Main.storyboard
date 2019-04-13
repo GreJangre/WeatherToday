@@ -173,10 +173,10 @@
             </objects>
             <point key="canvasLocation" x="1744.8" y="782.51231527093603"/>
         </scene>
-        <!--View Controller-->
+        <!--도시-->
         <scene sceneID="3Dp-pP-I9h">
             <objects>
-                <viewController id="qC8-hO-6XA" sceneMemberID="viewController">
+                <viewController id="qC8-hO-6XA" customClass="DetailViewController" customModule="WeatherToday" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yFz-ZU-jpV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -221,6 +221,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="TD4-Rw-qwM"/>
                     </view>
+                    <navigationItem key="navigationItem" title="도시" id="hi6-3S-ng6"/>
+                    <connections>
+                        <outlet property="imageView" destination="ZpF-jZ-Bhu" id="UPm-MO-ZYn"/>
+                        <outlet property="rainLabel" destination="OdY-Fb-qMV" id="NAe-UZ-H3G"/>
+                        <outlet property="tempLabel" destination="WUF-fh-OVO" id="xf3-dE-X2Z"/>
+                        <outlet property="weatherLabel" destination="to6-Rw-unH" id="23n-xU-ak5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fXz-M8-EC2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
